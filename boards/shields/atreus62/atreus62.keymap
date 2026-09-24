@@ -1,17 +1,107 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
+    behaviors {
+        bspc_del: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
+        shift_caps: shift_caps {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&kp CAPSLOCK>;
+            mods = <(MOD_RSFT)>;
+        };
+    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
+            /*
+             * |------------------------------------------------------------------------------------------------------------------|
+             * | $     | "     | «     | »     | (     | )     |                  | @     | +     | -     | /     | *     | =     |
+             * | w     | b     | é     | p     | o     | è     |                  | ^     | v     | d     | l     | j     | z     |
+             * | ç     | a     | u     | i     | e     | ,     |                  | c     | t     | s     | r     | n     | m     |
+             * | ê     | à     | y     | x     | .     | k     |                  | ’     | q     | g     | h     | f     | %     |
+             * |-------|-------|-------|-------|-------|-------|--------  --------|-------|-------|-------|-------|-------|-------|
+             * | Super | Ctrl  | Alt   | LOWER | Shift | Espace| Entrée|  | Suppr | Espace| Shift | RAISE | AltGr | Tab   | Échap |
+             */
             bindings = <
-                &kp A &kp A &kp A &kp A &kp A &kp A                 &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A                 &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A                 &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A                 &kp A &kp A &kp A &kp A &kp A &kp A
-                &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A &kp A
+                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                          &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
+                &kp RBKT &kp Q &kp W &kp E &kp R                                                      &kp T &kp Y &kp U &kp I &kp O &kp P &kp LBKT
+                &kp NUHS &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J &kp K &kp L &kp SEMI &kp APOS
+                &kp NUBS &kp Z &kp X &kp C &kp V &kp B                                                &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp EQUAL
+                &kp LGUI &kp LCTRL &kp LALT &mo 1 &shift_caps &kp SPACE     &kp RET     &bspc_del     &kp SPACE &kp RSHIFT &mo 2 &kp RALT &kp TAB &kp ESC
+            >;
+        };
+        lower_layer {
+            display-name = "Lower Layer";
+            /*
+             * |------------------------------------------------------------------------------------------------------------------|
+             * |       |       | F12   | F13   | F14   | F15   |                  | Suppr | Tab   | /     | *     | NumL  |       |
+             * |       |       |       |       |       |       |                  | Efface| 7     | 8     | 9     |       |       |
+             * |       |       |       |       |       |       |                  | Entrée| 4     | 5     | 6     | +     |       |
+             * |       |       |       |       |       |       |                  | Entrée| 1     | 2     | 3     | Efface|       |
+             * |-------|-------|-------|-------|-------|-------|--------  --------|-------|-------|-------|-------|-------|-------|
+             * |       |       |       |       |       |       |       |  |       |       | 0     |       | .     | Entrée|       |
+             */
+            bindings = <
+                &none &none &kp F12 &kp F13 &kp F14 &kp F15                         &kp DEL &kp TAB &kp KP_SLASH &kp KP_ASTERISK &kp KP_NLCK &none
+                &none &none &none &none &none &none                                 &kp BSPC &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &none
+                &none &none &none &none &none &none                                 &kp KP_ENTER &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS &none
+                &none &none &none &none &none &none                                 &kp KP_ENTER &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp BSPC &none
+                &trans &trans &trans &trans &trans &trans     &trans     &trans     &trans &kp KP_N0 &trans &kp KP_DOT &kp KP_ENTER &trans 
+            >;
+        };
+        raise_layer {
+            display-name = "Raise Layer";
+            /*
+             * |------------------------------------------------------------------------------------------------------------------|
+             * | PrScr | F1    | F2    | F3    | F4    | F5    |                  | F6    | F7    | F8    | F9    | F10   | F11   |
+             * |       |       |       |       |       |       |                  | Ins   | Home  | ↑     | End   | Pg Up | F12   |
+             * |       |       |       |       |       |       |                  | Del   | ←     | ↓     | →     | Pg Dn | VOL+  |
+             * |       |       |       |       |       |       |                  |       | Prev  | PP    | Next  |       | VOL-  |
+             * |-------|-------|-------|-------|-------|-------|------------------|-------|-------|-------|-------|-------|-------|
+             * |       |       |       |       |       |       |       |  |       |       |       |       |       |       | Mute  |
+             */
+            bindings = <
+                &kp PSCRN &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                        &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+                &none &none &none &none &none &none                                 &kp INS &kp HOME &kp UP &kp END &kp PG_UP &kp F12
+                &none &none &none &none &none &none                                 &kp DEL &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN &kp K_VOL_UP
+                &none &none &none &none &none &none                                 &none &kp K_PREV &kp K_PP &kp K_NEXT &none &kp K_VOL_DN
+                &trans &trans &trans &trans &trans &trans     &trans     &trans     &trans &trans &trans &trans &trans &kp K_MUTE
+            >;
+        };
+        adjust_layer {
+            display-name = "Ajust Layer";
+            /*
+             * |------------------------------------------------------------------------------------------------------------------|
+             * | Unlock| BT 0  | BT 1  | BT 2  | BT 3  |       |                  |       |       |       |       |       | Reset |
+             * |       | ClrBt |       |       | ClrAll|       |                  |       |       |       |       |       | Flash |
+             * |       |       |       |       |       |       |                  |       |       |       |       |       |       |
+             * |       |       |       |       |       |       |                  |       |       |       |       |       |       |
+             * |-------|-------|-------|-------|-------|-------|------------------|-------|-------|-------|-------|-------|-------|
+             * | Super | Ctrl  | Alt   |       | Shift | Espace| Entrée|  | Suppr | Espace| Shift |       | AltGr | Tab   | Échap |
+             */
+            bindings = <
+                &studio_unlock &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &none              &none &none &none &none &none &sys_reset
+                &none &bt BT_CLR &none &none &bt BT_CLR_ALL &none                                      &none &none &none &none &none &bootloader
+                &none &none &none &none &none &none                                                    &none &none &none &none &none &none
+                &none &none &none &none &none &none                                                    &none &none &none &none &none &none
+                &kp LGUI &kp LCTRL &kp LALT &trans &shift_caps &kp SPACE     &kp RET     &bspc_del     &kp SPACE &kp RSHIFT &trans &kp RALT &kp TAB &kp ESC
             >;
         };
     };
