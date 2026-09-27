@@ -17,21 +17,17 @@
             bindings = <&kp LSHIFT>, <&kp CAPSLOCK>;
             mods = <(MOD_RSFT)>;
         };
-        /* --- Ponctuation Bépo -> QWERTY (indépendant de l'OS) --- */
-        bepo_comma_semi: bepo_comma_semi {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        bepo_dot_colon: bepo_dot_colon {
+        
+        /* Bépo -> QWERTY */
+                
+        bp_dot_colon: bp_dot_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        bepo_apos_quest: bepo_apos_quest {
+        bp_apos_quest: bp_apos_quest {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp APOS>, <&kp SLASH>;
@@ -39,124 +35,142 @@
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /* --- Rangée 1 : symboles/chiffres, sans besoin de macro Unicode --- */
-        mm_dollar_hash: mm_dollar_hash {
+            /* Ligne 1 */
+
+        bp_dollar_hash: bp_dollar_hash {
             // TLDE : $ (base) / # (shift)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LS(N4)>, <&kp LS(N3)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_quot_1: mm_quot_1 {
+        bp_quot_1: bp_quot_1 {
             // N1 : " (base) / 1 (shift)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LS(APOS)>, <&kp N1>;
+            bindings = <&kp DQT>, <&kp N1>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_paren_open_4: mm_paren_open_4 {
-            // N4 : ( (base) / 4 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(N9)>, <&kp N4>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_paren_close_5: mm_paren_close_5 {
-            // N5 : ) (base) / 5 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(N0)>, <&kp N5>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_at_6: mm_at_6 {
-            // N6 : @ (base) / 6 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(N2)>, <&kp N6>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_plus_7: mm_plus_7 {
-            // N7 : + (base) / 7 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(EQUAL)>, <&kp N7>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_dash_8: mm_dash_8 {
-            // N8 : - (base) / 8 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp N8>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_slash_9: mm_slash_9 {
-            // N9 : / (base) / 9 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SLASH>, <&kp N9>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_star_0: mm_star_0 {
-            // N0 : * (base) / 0 (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(N8)>, <&kp N0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_percent_grave: mm_percent_grave {
-            // = : % (base) / ` (shift)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LS(N5)>, <&mac_grave_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        /* --- Lettres accentuées : mod-morph minuscule/majuscule, par OS --- */
-        mm_eacute_lnx: mm_eacute_lnx {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_eacute_lo_lnx>, <&mac_eacute_up_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_egrave_lnx: mm_egrave_lnx {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_egrave_lo_lnx>, <&mac_egrave_up_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_ccedil_lnx: mm_ccedil_lnx {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_ccedil_lo_lnx>, <&mac_ccedil_up_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_ecirc_lnx: mm_ecirc_lnx {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_ecirc_lo_lnx>, <&mac_ecirc_up_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_agrave_lnx: mm_agrave_lnx {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_agrave_lo_lnx>, <&mac_agrave_up_lnx>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_guillopen_lnx: mm_guillopen_lnx {
+        bp_guillopen_noralt_lnx: bp_guillopen_noralt_lnx {
             // N2 : « (base) / 2 (shift)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_guillopen_lnx>, <&kp N2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_guillclose_lnx: mm_guillclose_lnx {
+        bp_guillopen_ralt_lnx: bp_guillopen_ralt_lnx {
+            // <
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(COMMA)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillopen_lnx: bp_guillopen_lnx {
+            // « 2 <
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_guillopen_noralt_lnx>, <&bp_guillopen_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_guillclose_noralt_lnx: bp_guillclose_noralt_lnx {
             // N3 : » (base) / 3 (shift)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_guillclose_lnx>, <&kp N3>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_equal_degree_lnx: mm_equal_degree_lnx {
+        bp_guillclose_ralt_lnx: bp_guillclose_ralt_lnx {
+            // >
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOT)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillclose_lnx: bp_guillclose_lnx {
+            // » 3 >
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_guillclose_noralt_lnx>, <&bp_guillclose_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_paren_open_noralt_lnx: bp_paren_open_noralt_lnx {
+            // N4 : ( (base) / 4 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N9)>, <&kp N4>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_paren_open_ralt_lnx: bp_paren_open_ralt_lnx {
+            // [
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_paren_open_4: bp_paren_open_4 {
+            // ( 4 [
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_paren_open_noralt_lnx>, <&bp_paren_open_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_paren_close_noralt_lnx: bp_paren_close_noralt_lnx {
+            // ) (base) / 5 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N0)>, <&kp N5>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_paren_close_ralt_lnx: bp_paren_close_ralt_lnx {
+            // [
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RBKT>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_paren_close_5: bp_paren_close_5 {
+            // ) 5 ]
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_paren_close_noralt_lnx>, <&bp_paren_close_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_at_6: bp_at_6 {
+            // @ (base) / 6 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N2)>, <&kp N6>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_plus_7: bp_plus_7 {
+            // + (base) / 7 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(EQUAL)>, <&kp N7>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_dash_8: bp_dash_8 {
+            // - (base) / 8 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp N8>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_slash_9: bp_slash_9 {
+            // / (base) / 9 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp N9>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_star_0: bp_star_0 {
+            // * (base) / 0 (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N8)>, <&kp N0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_equal_degree_lnx: bp_equal_degree_lnx {
             // Touche MINUS (fin rangée 1) : = (base) / ° (shift)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -164,162 +178,611 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        mm_eacute_win: mm_eacute_win {
+            /* Ligne 2 */
+            
+        bp_b_noralt_lnx: bp_b_noralt_lnx {
+            // b (base) / B (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp B>, <&kp LS(B)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_b_ralt_lnx: bp_b_ralt_lnx {
+            // | _
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(NUBS)>, <&kp LS(MINUS)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_b_lnx: bp_b_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_b_noralt_lnx>, <&bp_b_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_p_noralt_lnx: bp_p_noralt_lnx {
+            // p P
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp B>, <&kp LS(B)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_p_ralt_lnx: bp_p_ralt_lnx {
+            // & 
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N7)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_p_lnx: bp_p_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_p_noralt_lnx>, <&bp_p_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+
+            /* Ligne 3 */
+
+        bp_eacute_lnx: bp_eacute_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_eacute_lo_lnx>, <&mac_eacute_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_egrave_lnx: bp_egrave_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_egrave_lo_lnx>, <&mac_egrave_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ccedil_lnx: bp_ccedil_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_ccedil_lo_lnx>, <&mac_ccedil_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_comma_semi_noralt: bp_comma_semi_noralt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_comma_semi_ralt: bp_comma_semi_ralt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp APOS>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_comma_semi: bp_comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_comma_semi_noralt>, <&bp_comma_semi_ralt>;
+            mods = <(MOD_RALT)>;
+        };
+
+             /* rangée 4 */
+
+        bp_ecirc_noralt_lnx: bp_ecirc_noralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_ecirc_lo_lnx>, <&mac_ecirc_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ecirc_ralt_lnx: bp_ecirc_ralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ecirc_lnx: bp_ecirc_lnx {
+            // ê Ê /
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_ecirc_noralt_lnx>, <&bp_ecirc_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_agrave_noralt_lnx: bp_agrave_noralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_agrave_lo_lnx>, <&mac_agrave_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_agrave_ralt_lnx: bp_agrave_ralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp NUHS>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_agrave_lnx: bp_agrave_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_agrave_noralt_lnx>, <&bp_agrave_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_y_noralt_lnx: bp_y_noralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Y>, <&kp LS(Y)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_y_ralt_lnx: bp_y_ralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_y_lnx: bp_y_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_y_noralt_lnx>, <&bp_y_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_x_noralt_lnx: bp_x_noralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&kp LS(X)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_x_ralt_lnx: bp_x_ralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RBRC>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_x_lnx: bp_x_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_x_noralt_lnx>, <&bp_x_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_k_noralt_lnx: bp_k_noralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp LS(K)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_k_ralt_lnx: bp_k_ralt_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_k_lnx: bp_k_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_k_noralt_lnx>, <&bp_k_ralt_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_percent_grave: bp_percent_grave {
+            // % (base) / ` (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N5)>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        /* Bépo to qwerty WIN */
+        
+        bp_eacute_win: bp_eacute_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_eacute_lo_win>, <&mac_eacute_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_egrave_win: mm_egrave_win {
+        bp_egrave_win: bp_egrave_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_egrave_lo_win>, <&mac_egrave_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_ccedil_win: mm_ccedil_win {
+        bp_ccedil_win: bp_ccedil_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_ccedil_lo_win>, <&mac_ccedil_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_ecirc_win: mm_ecirc_win {
+        bp_ecirc_win: bp_ecirc_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_ecirc_lo_win>, <&mac_ecirc_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_agrave_win: mm_agrave_win {
+        bp_agrave_win: bp_agrave_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_agrave_lo_win>, <&mac_agrave_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_guillopen_win: mm_guillopen_win {
+        bp_guillopen_win: bp_guillopen_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_guillopen_win>, <&kp N2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_guillclose_win: mm_guillclose_win {
+        bp_guillclose_win: bp_guillclose_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mac_guillclose_win>, <&kp N3>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_equal_degree_win: mm_equal_degree_win {
+        bp_equal_degree_win: bp_equal_degree_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp EQUAL>, <&mac_degree_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        mm_eacute_mac: mm_eacute_mac {
+        /* BÉPO to AZERTY */
+
+        /* Ligne 1 */
+        bp_dollar_hash_az: bp_dollar_hash_az {
+            // TLDE : $ (base, natif AD12) / # (shift, AltGr+3)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mac_eacute_lo_mac>, <&mac_eacute_up_mac>;
+            bindings = <&kp RBKT>, <&kp RA(N3)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_egrave_mac: mm_egrave_mac {
+        bp_quot_1_az: bp_quot_1_az {
+            // N1 : " (base) / 1 (shift) - tout natif
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mac_egrave_lo_mac>, <&mac_egrave_up_mac>;
+            bindings = <&kp N3>, <&kp LS(N1)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_ccedil_mac: mm_ccedil_mac {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_ccedil_lo_mac>, <&mac_ccedil_up_mac>;
+        bp_guillopen_noralt_az_lnx: bp_guillopen_noralt_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(W)>, <&kp LS(N2)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_ecirc_mac: mm_ecirc_mac {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_ecirc_lo_mac>, <&mac_ecirc_up_mac>;
+        bp_guillopen_ralt_az_lnx: bp_guillopen_ralt_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(LS(W))>, <&none>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_agrave_mac: mm_agrave_mac {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_agrave_lo_mac>, <&mac_agrave_up_mac>;
+        bp_guillopen_az_lnx: bp_guillopen_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_guillopen_noralt_az_lnx>, <&bp_guillopen_ralt_az_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_guillclose_noralt_az_lnx: bp_guillclose_noralt_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(X)>, <&kp LS(N3)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_guillopen_mac: mm_guillopen_mac {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mac_guillopen_mac>, <&kp N2>;
+        bp_guillclose_ralt_az_lnx: bp_guillclose_ralt_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(LS(X))>, <&none>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_guillclose_mac: mm_guillclose_mac {
+        bp_guillclose_az_lnx: bp_guillclose_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_guillclose_noralt_az_lnx>, <&bp_guillclose_ralt_az_lnx>;
+            mods = <(MOD_RALT)>;
+        };
+        bp_paren_open_4_az: bp_paren_open_4_az {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mac_guillclose_mac>, <&kp N3>;
+            bindings = <&kp N5>, <&kp LS(N4)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mm_equal_degree_mac: mm_equal_degree_mac {
+        bp_paren_close_5_az: bp_paren_close_5_az {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&mac_degree_mac>;
+            bindings = <&kp MINUS>, <&kp LS(N5)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_at_6_az: bp_at_6_az {
+            // @ = AltGr+0 sur AZERTY
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N0)>, <&kp LS(N6)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_plus_7_az: bp_plus_7_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(EQUAL)>, <&kp LS(N7)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_dash_8_az: bp_dash_8_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N6>, <&kp LS(N8)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_slash_9_az: bp_slash_9_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOT)>, <&kp LS(N9)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_star_0_az: bp_star_0_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp NUHS>, <&kp LS(N0)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_equal_degree_az: bp_equal_degree_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&kp LS(MINUS)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_percent_grave_az: bp_percent_grave_az {
+            // % (base, shift+ù) / ` (shift, AltGr+7)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(APOS)>, <&kp RA(N7)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        /* Ligne 2 */
+
+        bp_b_noralt_az: bp_b_noralt_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp B>, <&kp LS(B)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_b_ralt_az: bp_b_ralt_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N6)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_b_az: bp_b_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_b_noralt_az>, <&bp_b_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_eacute_az_lnx: bp_eacute_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N2>, <&mac_eacute_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_p_noralt_az: bp_p_noralt_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp LS(P)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_p_ralt_az: bp_p_ralt_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N1>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_p_az: bp_p_az {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_p_noralt_az>, <&bp_p_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_circ_bang_az: bp_circ_bang_az {
+            // touche Y (Bépo) : accent circonflexe mort (base) / ! (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp SLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        /* Ligne 3 */
+
+        bp_ccedil_az_lnx: bp_ccedil_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N9>, <&mac_ccedil_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_comma_semi_az: bp_comma_semi_az {
+            // , (base) / ; (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp M>, <&kp COMMA>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        /* Ligne 4 */
+
+        bp_ecirc_noralt_az: bp_ecirc_noralt_az {
+            // ê : touche morte ^ + e (natif, marche pareil sur tous les OS)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mac_ecirc_az>, <&mac_ecirc_up_az>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ecirc_ralt_az: bp_ecirc_ralt_az {
+            // /
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOT)>, <&kp RA(N9)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ecirc_az: bp_ecirc_az {
+            // ê Ê /
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_ecirc_noralt_az>, <&bp_ecirc_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_agrave_noralt_az_lnx: bp_agrave_noralt_az_lnx {
+            // à À
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N0>, <&mac_agrave_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_agrave_ralt_az: bp_agrave_ralt_az {
+            // \
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RALT(N8)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_agrave_az_lnx: bp_agrave_az_lnx {
+            // à À \
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_y_noralt_az: bp_y_noralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp Y>, <&kp LS(Y)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_y_ralt_az: bp_y_ralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(N4)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_y_az: bp_y_az {
+            // y Y {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_y_noralt_az>, <&bp_y_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_x_noralt_az: bp_x_noralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp X>, <&kp LS(X)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_x_ralt_az: bp_x_ralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(EQUAL)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_x_az: bp_x_az {
+            // x X }
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_x_noralt_az>, <&bp_x_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_dot_colon_az: bp_dot_colon_az {
+            // . (base) / : (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(COMMA)>, <&kp DOT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_k_noralt_az: bp_k_noralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp K>, <&kp LS(K)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_k_ralt_az: bp_k_ralt_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp RA(N2)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_k_az: bp_k_az {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_k_noralt_az>, <&bp_k_ralt_az>;
+            mods = <MOD_RALT>;
+        };
+        bp_apos_quest_az: bp_apos_quest_az {
+            // ' (base) / ? (shift)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N4>, <&kp LS(M)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_egrave_az_lnx: bp_egrave_az_lnx {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N7>, <&mac_egrave_up_lnx>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_eacute_az_win: bp_eacute_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N2>, <&mac_eacute_up_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_egrave_az_win: bp_egrave_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N7>, <&mac_egrave_up_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_agrave_az_win: bp_agrave_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N0>, <&mac_agrave_up_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_ccedil_az_win: bp_ccedil_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp N9>, <&mac_ccedil_up_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillopen_az_win: bp_guillopen_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&mac_guillopen_win>, <&kp LS(N2)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillclose_az_win: bp_guillclose_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&mac_guillclose_win>, <&kp LS(N3)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
     macros {
-        mac_grave_lnx: mac_grave_lnx {
+        /* --- ê en AZ : touche morte ^ (native, indépendant de l'OS) --- */
+        mac_ecirc_az: mac_ecirc_az {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp GRAVE>, <&macro_tap &kp SPACE>;        
+            bindings = <&macro_tap &kp LBKT &kp E>;
+        };
+        mac_ecirc_up_az: mac_ecirc_up_az {
+            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBKT &kp LS(E)>;
         };
         /* ============== LINUX (Ctrl+Shift+U, hex, Entrée) ============== */
         mac_eacute_lo_lnx: mac_eacute_lo_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N9>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp N9 &kp ENTER>;
         };
         mac_eacute_up_lnx: mac_eacute_up_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N9>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp C &kp N9 &kp ENTER>;
         };
         mac_egrave_lo_lnx: mac_egrave_lo_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N8>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp N8 &kp ENTER>;
         };
         mac_egrave_up_lnx: mac_egrave_up_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N8>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp C &kp N8 &kp ENTER>;
         };
         mac_ccedil_lo_lnx: mac_ccedil_lo_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N7>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp N7 &kp ENTER>;
         };
         mac_ccedil_up_lnx: mac_ccedil_up_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N7>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp C &kp N7 &kp ENTER>;
         };
-        mac_ecirc_lo_lnx: mac_ecirc_lo_lnx {
+       mac_ecirc_lo_lnx: mac_ecirc_lo_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp A &kp ENTER>;
         };
         mac_ecirc_up_lnx: mac_ecirc_up_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp C &kp A &kp ENTER>;
         };
         mac_agrave_lo_lnx: mac_agrave_lo_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N0>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp E &kp N0 &kp ENTER>;
         };
         mac_agrave_up_lnx: mac_agrave_up_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N0>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp C &kp N0 &kp ENTER>;
         };
         mac_guillopen_lnx: mac_guillopen_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp A &kp B>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp A &kp B &kp ENTER>;
         };
         mac_guillclose_lnx: mac_guillclose_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp B &kp B>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp B &kp B &kp ENTER>;
         };
         mac_degree_lnx: mac_degree_lnx {
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL &kp LSHIFT>, <&macro_tap &kp U>, <&macro_release &kp LCTRL &kp LSHIFT>, <&macro_tap &kp N0 &kp N0 &kp B &kp N0>, <&macro_tap &kp ENTER>;
+            bindings = <&macro_tap &kp LC(LS(U)) &kp N0 &kp N0 &kp B &kp N0 &kp ENTER>;
         };
 
         /* ====== WINDOWS (WinCompose, touche Compose = RAlt) ====== */
@@ -375,67 +838,13 @@
             compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_tap &kp RALT>, <&macro_tap &kp U>, <&macro_tap &kp N0 &kp N0 &kp B &kp N0>, <&macro_tap &kp ENTER>;
         };
-
-        /* ====== macOS (Unicode Hex Input : Option + 4 chiffres hex) ====== */
-        mac_eacute_lo_mac: mac_eacute_lo_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N9>, <&macro_release &kp LALT>;
-        };
-        mac_eacute_up_mac: mac_eacute_up_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N9>, <&macro_release &kp LALT>;
-        };
-        mac_egrave_lo_mac: mac_egrave_lo_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N8>, <&macro_release &kp LALT>;
-        };
-        mac_egrave_up_mac: mac_egrave_up_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N8>, <&macro_release &kp LALT>;
-        };
-        mac_ccedil_lo_mac: mac_ccedil_lo_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N7>, <&macro_release &kp LALT>;
-        };
-        mac_ccedil_up_mac: mac_ccedil_up_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N7>, <&macro_release &kp LALT>;
-        };
-        mac_ecirc_lo_mac: mac_ecirc_lo_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
-        };
-        mac_ecirc_up_mac: mac_ecirc_up_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
-        };
-        mac_agrave_lo_mac: mac_agrave_lo_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_agrave_up_mac: mac_agrave_up_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N0>, <&macro_release &kp LALT>;
-        };
-        mac_guillopen_mac: mac_guillopen_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp A &kp B>, <&macro_release &kp LALT>;
-        };
-        mac_guillclose_mac: mac_guillclose_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp B &kp B>, <&macro_release &kp LALT>;
-        };
-        mac_degree_mac: mac_degree_mac {
-            compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp B &kp N0>, <&macro_release &kp LALT>;
-        };
     };
     
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <4 5>;
-            then-layer = <6>;
+            if-layers = <5 6>;
+            then-layer = <7>;
         };
     };
     keymap {
@@ -457,46 +866,54 @@
 &kp RBKT &kp Q &kp W &kp E &kp R                                                      &kp T &kp Y &kp U &kp I &kp O &kp P &kp LBKT
 &kp NUHS &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J &kp K &kp L &kp SEMI &kp APOS
 &kp NUBS &kp Z &kp X &kp C &kp V &kp B                                                &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp EQUAL
-&kp LGUI &kp LCTRL &kp LALT &mo 4 &shift_caps &kp SPACE     &kp RET     &bspc_del     &kp SPACE &kp RSHIFT &mo 5 &kp RALT &kp TAB &kp ESC
+&kp LGUI &kp LCTRL &kp LALT &mo 5 &shift_caps &kp SPACE     &kp RET     &bspc_del     &kp SPACE &kp RSHIFT &mo 6 &kp RALT &kp TAB &kp ESC
             >;
         };
         qwerty_compat_layer { // layer 1
-            // Couche 4 : translittère le Bépo pour un hôte QWERTY.
-            // Accents = méthode Linux par défaut (surchargée par les couches 5/6).
+            // Couche 2 : translittère le Bépo pour un hôte QWERTY.
             display-name = "QWERTY-compat";
             bindings = <
-&mm_dollar_hash &mm_quot_1 &mm_guillopen_lnx &mm_guillclose_lnx &mm_paren_open_4 &mm_paren_close_5     &mm_at_6 &mm_plus_7 &mm_dash_8 &mm_slash_9 &mm_star_0 &mm_equal_degree_lnx
-&trans &kp B &mm_eacute_lnx &kp P &kp O &mm_egrave_lnx                                                 &trans &kp V &kp D &kp L &kp J &kp Z
-&mm_ccedil_lnx &kp A &kp U &kp I &kp E &bepo_comma_semi                                                &kp C &kp T &kp S &kp R &kp N &kp M
-&mm_ecirc_lnx &mm_agrave_lnx &kp Y &kp X &bepo_dot_colon &kp K                                         &bepo_apos_quest &kp Q &kp G &kp H &kp F &mm_percent_grave
+&bp_dollar_hash &bp_quot_1 &bp_guillopen_lnx &bp_guillclose_lnx &bp_paren_open_4 &bp_paren_close_5     &bp_at_6 &bp_plus_7 &bp_dash_8 &bp_slash_9 &bp_star_0 &bp_equal_degree_lnx
+&trans &bp_b_lnx &bp_eacute_lnx &bp_p_lnx &kp O &bp_egrave_lnx                                         &trans &kp V &kp D &kp L &kp J &kp Z
+&bp_ccedil_lnx &kp A &kp U &kp I &kp E &bp_comma_semi                                                  &kp C &kp T &kp S &kp R &kp N &kp M
+&bp_ecirc_lnx &bp_agrave_lnx &bp_y_lnx &bp_x_lnx &bp_dot_colon &bp_k_lnx                               &bp_apos_quest &kp Q &kp G &kp H &kp F &bp_percent_grave
 &trans &trans &trans &trans &trans &trans          &trans     &trans                                   &trans &trans &trans &trans &trans &trans
             >;
         };
         qwerty_compat_windows_overlay { // layer 2
-            // Couche 5 : à activer PAR-DESSUS la couche 4 sous Windows.
-            // Ne redéfinit que les 5 lettres accentuées (méthode WinCompose).
-            display-name = "Accents Win";
+            // Couche 3 : à activer PAR-DESSUS la couche 2 sous Windows.
+            display-name = "Accents-Win";
             bindings = <
-&trans &trans &mm_guillopen_win &mm_guillclose_win &trans &trans              &trans &trans &trans &trans &trans &mm_equal_degree_win
-&trans &trans &mm_eacute_win &trans &trans &mm_egrave_win                     &trans &trans &trans &trans &trans &trans
-&mm_ccedil_win &trans &trans &trans &trans &trans                             &trans &trans &trans &trans &trans &trans
-&mm_ecirc_win &mm_agrave_win &trans &trans &trans &trans                      &trans &trans &trans &trans &trans &trans
+&trans &trans &bp_guillopen_win &bp_guillclose_win &trans &trans              &trans &trans &trans &trans &trans &bp_equal_degree_win
+&trans &trans &bp_eacute_win &trans &trans &bp_egrave_win                     &trans &trans &trans &trans &trans &trans
+&bp_ccedil_win &trans &trans &trans &trans &trans                             &trans &trans &trans &trans &trans &trans
+&bp_ecirc_win &bp_agrave_win &bp_y_lnx &bp_x_lnx &trans &trans                &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans          &trans     &trans          &trans &trans &trans &trans &trans &trans
             >;
         };
-        qwerty_compat_macos_overlay { // layer 3
-            // Couche 6 : à activer PAR-DESSUS la couche 4 sous macOS.
-            // Ne redéfinit que les 5 lettres accentuées (Unicode Hex Input).
-            display-name = "Accents Mac";
+        azerty_compat_layer { // Layer 3
+            // Couche 5 : translittère le Bépo pour un hôte AZERTY.
+            display-name = "AZERTY-compat";
             bindings = <
-&trans &trans &mm_guillopen_mac &mm_guillclose_mac &trans &trans              &trans &trans &trans &trans &trans &mm_equal_degree_mac
-&trans &trans &mm_eacute_mac &trans &trans &mm_egrave_mac                     &trans &trans &trans &trans &trans &trans
-&mm_ccedil_mac &trans &trans &trans &trans &trans                             &trans &trans &trans &trans &trans &trans
-&mm_ecirc_mac &mm_agrave_mac &trans &trans &trans &trans                      &trans &trans &trans &trans &trans &trans
+&bp_dollar_hash_az &bp_quot_1_az &bp_guillopen_az_lnx &bp_guillclose_az_lnx &bp_paren_open_4_az &bp_paren_close_5_az     &bp_at_6_az &bp_plus_7_az &bp_dash_8_az &bp_slash_9_az &bp_star_0_az &bp_equal_degree_az
+&kp Z &bp_b_az &bp_eacute_az_lnx &bp_p_az &kp O &bp_egrave_az_lnx                                                        &bp_circ_bang_az &kp V &kp D &kp L &kp J &kp W
+&bp_ccedil_az_lnx &kp Q &kp U &kp I &kp E &bp_comma_semi_az                                                              &kp C &kp T &kp S &kp R &kp N &kp SEMI
+&bp_ecirc_az &bp_agrave_az_lnx &bp_y_az &bp_x_az &bp_dot_colon_az &bp_k_az                                               &bp_apos_quest_az &kp A &kp G &kp H &kp F &bp_percent_grave_az
+&trans &trans &trans &trans &trans &trans          &trans     &trans                                                     &trans &trans &trans &trans &trans &trans
+            >;
+        };
+        azerty_compat_windows_overlay { // Layer 4
+            // Couche 6 : à activer PAR-DESSUS la couche 5 sous Windows.
+            display-name = "Accents-Win-AZ";
+            bindings = <
+&trans &trans &bp_guillopen_az_win &bp_guillclose_az_win &trans &trans        &trans &trans &trans &trans &trans &trans
+&trans &trans &bp_eacute_az_win &trans &trans &bp_egrave_az_win               &trans &trans &trans &trans &trans &trans
+&bp_ccedil_az_win &trans &trans &trans &trans &trans                          &trans &trans &trans &trans &trans &trans
+&trans &bp_agrave_az_win &trans &trans &trans &trans                          &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans          &trans     &trans          &trans &trans &trans &trans &trans &trans
             >;
         };
-        lower_layer { // layer 4
+        lower_layer { // layer 5
             display-name = "Lower Layer";
 /*
  * |------------------------------------------------------------------------------------------------------------------|
@@ -515,7 +932,7 @@
 &trans &trans &trans &trans &trans &trans     &trans     &trans     &trans &kp KP_N0 &trans &kp KP_DOT &kp KP_ENTER &trans 
             >;
         };
-        raise_layer { // layer 5
+        raise_layer { // layer 6
             display-name = "Raise Layer";
 /*
  * |------------------------------------------------------------------------------------------------------------------|
@@ -534,7 +951,7 @@
 &trans &trans &trans &trans &trans &trans     &trans     &trans     &trans &trans &trans &trans &trans &kp K_MUTE
             >;
         };
-        adjust_layer { // layer 6
+        adjust_layer { // layer 7
             display-name = "Ajust Layer";
 /*
  * |------------------------------------------------------------------------------------------------------------------|
@@ -548,8 +965,8 @@
             bindings = <
 &studio_unlock &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &none              &none &none &none &none &none &sys_reset
 &none &bt BT_CLR &none &none &bt BT_CLR_ALL &none                                      &none &none &none &none &none &bootloader
-&none &none &none &none &none &none                                                    &to 0 &tog 1 &tog 2 &tog 3 &none &none
-&none &none &none &none &none &none                                                    &none &none &none &none &none &none
+&none &none &none &none &none &none                                                    &to 0 &tog 1 &tog 2 &none &none &none
+&none &none &none &none &none &none                                                    &none &tog 3 &tog 4 &none &none &none
 &kp LGUI &kp LCTRL &kp LALT &trans &shift_caps &kp SPACE     &kp RET     &bspc_del     &kp SPACE &kp RSHIFT &trans &kp RALT &kp TAB &kp ESC
             >;
         };
