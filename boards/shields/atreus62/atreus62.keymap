@@ -612,20 +612,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         bp_agrave_ralt_az: bp_agrave_ralt_az {
-            // \
+            // \ 
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&kp RA(N8)>, <&none>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        /*
         bp_agrave_az_lnx: bp_agrave_az_lnx {
             // à À \ 
-            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
-
-            mods = <MOD_RALT>;
-        };
-        */
-        bp_agrave_az_lnx: bp_agrave_az_lnx {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
             mods = <MOD_RALT>;
