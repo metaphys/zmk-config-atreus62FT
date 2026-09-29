@@ -619,15 +619,15 @@
         };
         /*
         bp_agrave_az_lnx: bp_agrave_az_lnx {
-            // à À \
+            // à À \ 
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
-            bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
+
             mods = <MOD_RALT>;
         };
         */
         bp_agrave_az_lnx: bp_agrave_az_lnx {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
-            bindings = <&bp_ecirc_noralt_az>, <&bp_ecirc_ralt_az>;
+            bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
             mods = <MOD_RALT>;
         };
         bp_y_noralt_az: bp_y_noralt_az {
