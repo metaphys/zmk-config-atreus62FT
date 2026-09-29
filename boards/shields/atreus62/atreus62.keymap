@@ -630,7 +630,7 @@
             #binding-cells = <0>;
             bindings = <&bp_ecirc_noralt_az>, <&bp_ecirc_ralt_az>;
             mods = <MOD_RALT>;
-        }
+        };
         bp_y_noralt_az: bp_y_noralt_az {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&kp Y>, <&kp LS(Y)>;
