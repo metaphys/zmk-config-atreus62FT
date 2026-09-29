@@ -70,7 +70,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_guillopen_noralt_lnx>, <&bp_guillopen_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_guillclose_noralt_lnx: bp_guillclose_noralt_lnx {
             // N3 : » (base) / 3 (shift)
@@ -91,7 +91,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_guillclose_noralt_lnx>, <&bp_guillclose_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_paren_open_noralt_lnx: bp_paren_open_noralt_lnx {
             // N4 : ( (base) / 4 (shift)
@@ -112,7 +112,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_paren_open_noralt_lnx>, <&bp_paren_open_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_paren_close_noralt_lnx: bp_paren_close_noralt_lnx {
             // ) (base) / 5 (shift)
@@ -133,7 +133,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_paren_close_noralt_lnx>, <&bp_paren_close_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_at_6: bp_at_6 {
             // @ (base) / 6 (shift)
@@ -198,7 +198,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_b_noralt_lnx>, <&bp_b_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_p_noralt_lnx: bp_p_noralt_lnx {
             // p P
@@ -218,7 +218,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_p_noralt_lnx>, <&bp_p_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
 
             /* Ligne 3 */
@@ -257,7 +257,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_comma_semi_noralt>, <&bp_comma_semi_ralt>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
 
              /* rangée 4 */
@@ -279,7 +279,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_ecirc_noralt_lnx>, <&bp_ecirc_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_agrave_noralt_lnx: bp_agrave_noralt_lnx {
             compatible = "zmk,behavior-mod-morph";
@@ -297,7 +297,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_agrave_noralt_lnx>, <&bp_agrave_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_y_noralt_lnx: bp_y_noralt_lnx {
             compatible = "zmk,behavior-mod-morph";
@@ -315,7 +315,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_y_noralt_lnx>, <&bp_y_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_x_noralt_lnx: bp_x_noralt_lnx {
             compatible = "zmk,behavior-mod-morph";
@@ -333,7 +333,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_x_noralt_lnx>, <&bp_x_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_k_noralt_lnx: bp_k_noralt_lnx {
             compatible = "zmk,behavior-mod-morph";
@@ -351,7 +351,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&bp_k_noralt_lnx>, <&bp_k_ralt_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_percent_grave: bp_percent_grave {
             // % (base) / ` (shift)
@@ -442,7 +442,7 @@
         bp_guillopen_az_lnx: bp_guillopen_az_lnx {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&bp_guillopen_noralt_az_lnx>, <&bp_guillopen_ralt_az_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_guillclose_noralt_az_lnx: bp_guillclose_noralt_az_lnx {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
@@ -457,7 +457,7 @@
         bp_guillclose_az_lnx: bp_guillclose_az_lnx {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&bp_guillclose_noralt_az_lnx>, <&bp_guillclose_ralt_az_lnx>;
-            mods = <(MOD_RALT)>;
+            mods = <MOD_RALT>;
         };
         bp_paren_open_4_az: bp_paren_open_4_az {
             compatible = "zmk,behavior-mod-morph";
@@ -617,13 +617,20 @@
             bindings = <&kp RA(N8)>, <&none>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        /*
         bp_agrave_az_lnx: bp_agrave_az_lnx {
             // à À \
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
             mods = <MOD_RALT>;
         };
+        */
+        bp_agrave_az_lnx: bp_agrave_az_lnx {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bp_ecirc_noralt_az>, <&bp_ecirc_ralt_az>;
+            mods = <MOD_RALT>;
+        }
         bp_y_noralt_az: bp_y_noralt_az {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&kp Y>, <&kp LS(Y)>;
