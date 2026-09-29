@@ -621,7 +621,8 @@
             // à À \
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
+            // bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
+            bindings = <&kp Y>, <&kp LS(Y)>;
             mods = <MOD_RALT>;
         };
         bp_y_noralt_az: bp_y_noralt_az {
