@@ -619,7 +619,8 @@
         };
         bp_agrave_az_lnx: bp_agrave_az_lnx {
             // à À \
-            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
             bindings = <&bp_agrave_noralt_az_lnx>, <&bp_agrave_ralt_az>;
             mods = <MOD_RALT>;
         };
