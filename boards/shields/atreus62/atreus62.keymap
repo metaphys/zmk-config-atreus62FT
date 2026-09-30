@@ -709,15 +709,35 @@
             bindings = <&kp N9>, <&mac_ccedil_up_win>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        bp_guillopen_az_win: bp_guillopen_az_win {
+        bp_guillopen_noralt_az_win: bp_guillopen_noralt_az_win {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&mac_guillopen_win>, <&kp LS(N2)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        bp_guillclose_az_win: bp_guillclose_az_win {
+        bp_guillopen_ralt_az_win: bp_guillopen_ralt_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp NUBS>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillopen_az_win: bp_guillopen_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_guillopen_noralt_az_win>, <&bp_guillopen_ralt_az_win>;
+            mods = <MOD_RALT>;
+        };
+        bp_guillclose_noralt_az_win: bp_guillclose_noralt_az_win {
             compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
             bindings = <&mac_guillclose_win>, <&kp LS(N3)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillclose_ralt_az_win: bp_guillclose_ralt_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&kp LS(NUBS)>, <&none>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        bp_guillclose_az_win: bp_guillclose_az_win {
+            compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>;
+            bindings = <&bp_guillclose_noralt_az_win>, <&bp_guillclose_ralt_az_win>;
+            mods = <MOD_RALT>;
         };
     };
 
@@ -892,7 +912,7 @@
             >;
         };
         azerty_compat_layer { // Layer 3
-            // Couche 5 : translittère le Bépo pour un hôte AZERTY.
+            // Couche 4 : translittère le Bépo pour un hôte AZERTY.
             display-name = "AZERTY-compat";
             bindings = <
 &bp_dollar_hash_az &bp_quot_1_az &bp_guillopen_az_lnx &bp_guillclose_az_lnx &bp_paren_open_4_az &bp_paren_close_5_az     &bp_at_6_az &bp_plus_7_az &bp_dash_8_az &bp_slash_9_az &bp_star_0_az &bp_equal_degree_az
@@ -903,13 +923,13 @@
             >;
         };
         azerty_compat_windows_overlay { // Layer 4
-            // Couche 6 : à activer PAR-DESSUS la couche 5 sous Windows.
+            // Couche 5 : à activer PAR-DESSUS la couche 5 sous Windows.
             display-name = "Accents-Win-AZ";
             bindings = <
 &trans &trans &bp_guillopen_az_win &bp_guillclose_az_win &trans &trans        &trans &trans &trans &trans &trans &trans
 &trans &trans &bp_eacute_az_win &trans &trans &bp_egrave_az_win               &trans &trans &trans &trans &trans &trans
 &bp_ccedil_az_win &trans &trans &trans &trans &trans                          &trans &trans &trans &trans &trans &trans
-&trans &bp_agrave_az_win &trans &trans &trans &trans                          &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans                                     &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans          &trans     &trans          &trans &trans &trans &trans &trans &trans
             >;
         };
